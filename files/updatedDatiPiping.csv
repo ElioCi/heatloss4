@@ -1,0 +1,4 @@
+Name,Material,Type,Conductivity,Length,numItems,numSubd,Diameter,Thickness,Layers,codeInsul,insulThk,Pressure,Temperature,Flow,cal_spc,finish,Emissivity,condFinish,ThkFinish,autoTF
+Tratto 1,Carbon Steel,straigth pipe,55.0,5.0,0,3,2 1/2,3.96,1,"['[', ""'"", 'i', '0', '1', ""'"", ']']",[20.0],0.0,400.0,115.0,1.0,Painted Metal,0.8,0.16,0.01,True
+Tratto 2,Carbon Steel,straigth pipe,55.0,5.0,0,3,2 1/2,3.96,1,"['[', ""'"", 'i', '0', '1', ""'"", ']']",[20.0],0.0,400.0,115.0,1.0,Painted Metal,0.8,0.16,0.01,True
+Tratto 3,Carbon Steel,straigth pipe,55.0,5.0,0,3,2 1/2,3.96,1,"['[', ""'"", 'i', '0', '1', ""'"", ']']",[20.0],0.0,300.0,115.0,1.0,Painted Metal,0.8,0.16,0.01,False

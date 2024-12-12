@@ -5,3 +5,5 @@ Pillow==10.4.0
 plotly==5.22.0
 streamlit==1.36.0
 streamlit_option_menu==0.3.13
+streamlit-aggrid==1.0.5
+pyJWT==2.8.0

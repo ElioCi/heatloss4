@@ -44,7 +44,7 @@ elif st.session_state.newFlag == "new":
 
 
 #leggi dati di input da DatiGenerali.csv
-with open('files/datiGenerali.csv') as file_input:
+with open('files/DatiGenerali.csv') as file_input:
     dfgen = pd.read_csv(file_input)   # lettura file e creazione
     dfgen.drop(dfgen.columns[dfgen.columns.str.contains('unnamed', case= False)], axis=1, inplace= True)
 

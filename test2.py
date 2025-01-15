@@ -10,7 +10,7 @@ from datetime import datetime
 from calcoli import Irraggiamento, Convezione, Conduzione, Dispersione
 from altair_saver import save
 from PIL import Image
-'''
+
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
@@ -39,7 +39,7 @@ def save_chart_as_image(chart, filename='files/grafico.png'):
     driver.get('file://' + os.path.abspath('files/grafico.html'))
     driver.save_screenshot(filename)
     driver.quit()
-'''
+    
 def Esegui():
     
     
@@ -439,9 +439,9 @@ def Esegui():
             # Salva il grafico come immagine PNG
             #save(combined_chart, "files/grafico.png")
             
-            #save_chart_as_image(combined_chart)
+            save_chart_as_image(combined_chart)
             #combined_chart.save("files/grafico.png", scale_factor=2)  
-            save(combined_chart, "files/grafico.png", method="png")
+            #save(combined_chart, "files/grafico.png", method="png")
         else:
             st.write("Errore: Il dataframe non contiene le colonne richieste.")
 

@@ -9,13 +9,12 @@ from datetime import datetime
 
 from calcoli import Irraggiamento, Convezione, Conduzione, Dispersione
 from altair_saver import save
-
+from PIL import Image
+'''
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
-
-from PIL import Image
 
 # Salva il grafico come immagine
 def save_chart_as_image(chart, filename='files/grafico.png'):
@@ -40,7 +39,7 @@ def save_chart_as_image(chart, filename='files/grafico.png'):
     driver.get('file://' + os.path.abspath('files/grafico.html'))
     driver.save_screenshot(filename)
     driver.quit()
-
+'''
 def Esegui():
     
     

@@ -8,3 +8,4 @@ streamlit_option_menu==0.3.13
 scipy==1.14.1
 streamlit-aggrid==1.0.5
 pyJWT==2.8.0
+altair-saver==0.5.0

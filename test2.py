@@ -13,9 +13,6 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from PIL import Image
 
-# Abilita il renderer per il formato PNG
-alt.renderers.enable('altair_saver', fmts=['png'])
-
 # Salva il grafico come immagine
 def save_chart_as_image(chart, filename='files/grafico.png'):
     # Configurazione del driver Selenium per il rendering
@@ -434,8 +431,8 @@ def Esegui():
             # Salva il grafico come immagine PNG
             #save(combined_chart, "files/grafico.png")
             
-            #save_chart_as_image(combined_chart)
-            combined_chart.save("files/grafico.png", scale_factor=2)    
+            save_chart_as_image(combined_chart)
+            #combined_chart.save("files/grafico.png", scale_factor=2)    
         else:
             st.write("Errore: Il dataframe non contiene le colonne richieste.")
 

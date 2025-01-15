@@ -1,3 +1,2 @@
 nodejs
 npm
-npm install -g vega-lite

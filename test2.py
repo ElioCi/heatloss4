@@ -18,10 +18,10 @@ def save_chart_as_image(chart, filename='files/grafico.png'):
     # Configurazione del driver Selenium per il rendering
     
     options = webdriver.ChromeOptions()
-    options.add_argument('--headless')  # Esegui in modalità headless
-    options.add_argument("--no-sandbox")  # Necessario per ambienti cloud
-    options.add_argument("--disable-dev-shm-usage")  # Risolve problemi di memoria
-    options.add_argument("--disable-gpu")  # Migliora compatibilità
+    #options.add_argument('--headless')  # Esegui in modalità headless
+    #options.add_argument("--no-sandbox")  # Necessario per ambienti cloud
+    #options.add_argument("--disable-dev-shm-usage")  # Risolve problemi di memoria
+    #options.add_argument("--disable-gpu")  # Migliora compatibilità
     driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
     
     # Usa Streamlit per renderizzare il grafico in un file HTML temporaneo

@@ -9,34 +9,21 @@ from datetime import datetime
 
 from calcoli import Irraggiamento, Convezione, Conduzione, Dispersione
 from altair_saver import save
-#from selenium import webdriver
-#from webdriver_manager.chrome import ChromeDriverManager
-from PIL import Image
-
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-
-
-
+from webdriver_manager.chrome import ChromeDriverManager
+from PIL import Image
 
 
 # Salva il grafico come immagine
 def save_chart_as_image(chart, filename='files/grafico.png'):
     # Configurazione del driver Selenium per il rendering
     
-    #options = webdriver.ChromeOptions()
-    #options.add_argument('--headless')  # Esegui in modalità headless
-    #driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
-
-    options = Options()
-    options.add_argument("--headless")  # Modalità headless
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')  # Esegui in modalità headless
     options.add_argument("--no-sandbox")  # Necessario per ambienti cloud
     options.add_argument("--disable-dev-shm-usage")  # Risolve problemi di memoria
     options.add_argument("--disable-gpu")  # Migliora compatibilità
-
-    service = Service("/usr/bin/chromedriver")  # Percorso del driver
-    driver = webdriver.Chrome(service=service, options=options)
+    driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
     
     # Usa Streamlit per renderizzare il grafico in un file HTML temporaneo
     chart.save('files/grafico.html')
@@ -445,8 +432,8 @@ def Esegui():
             # Salva il grafico come immagine PNG
             #save(combined_chart, "files/grafico.png")
             
-            save_chart_as_image(combined_chart)
-
+            #save_chart_as_image(combined_chart)
+            save(combined_chart, "files/grafico.png", method="vl-convert")    
         else:
             st.write("Errore: Il dataframe non contiene le colonne richieste.")
 

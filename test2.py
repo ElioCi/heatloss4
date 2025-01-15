@@ -440,8 +440,9 @@ def Esegui():
             # Salva il grafico come immagine PNG
             #save(combined_chart, "files/grafico.png")
             
-            save_chart_as_image(combined_chart)
-            #combined_chart.save("files/grafico.png", scale_factor=2)    
+            #save_chart_as_image(combined_chart)
+            #combined_chart.save("files/grafico.png", scale_factor=2)  
+            save(combined_chart, "files/grafico.png", method="node")
         else:
             st.write("Errore: Il dataframe non contiene le colonne richieste.")
 

@@ -1,0 +1,13 @@
+﻿#,Physical Quantity,Unit of Measurement,Symbol
+0,Length,Meter,m
+1,Nominal Diameter,Inch,""""
+2,Diameter,Millimeter,mm
+3,Thickness,Millimeter,mm
+4,Thermal Conductivity,Watt/(Meter*K),W/mK
+5,Pressure,Bar gauge,Barg
+6,Temperature, Celsius,degC
+7,Velocity, meter/second,m/s
+8,Flow,Kilogram/hour,kg/h
+9,Specific Heat,Kilocalories/Kilogram,kcal/kg
+10,Emissivity,Joule/(meter^2*second),J/(m^2*s)
+11,Heat transfer,Watt/hour,W/h

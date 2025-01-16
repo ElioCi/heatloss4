@@ -20,7 +20,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 
 async def save_chart(chart_html, output_file):
-    browser = await launch(headless=True, args=["--no-sandbox"])
+    browser = await launch(headless=True, args=["--no-sandbox","--disable-setuid-sandbox"])
     page = await browser.newPage()
     await page.setContent(chart_html)
     await page.screenshot(path=output_file)

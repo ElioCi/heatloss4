@@ -11,10 +11,20 @@ from calcoli import Irraggiamento, Convezione, Conduzione, Dispersione
 from altair_saver import save
 from PIL import Image
 
+import asyncio
+from pyppeteer import launch
+
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
+
+async def save_chart(chart_html, output_file):
+    browser = await launch(headless=True, args=["--no-sandbox"])
+    page = await browser.newPage()
+    await page.setContent(chart_html)
+    await page.screenshot(path=output_file)
+    await browser.close()
 
 # Salva il grafico come immagine
 def save_chart_as_image(chart, filename='files/grafico.png'):
@@ -438,8 +448,10 @@ def Esegui():
             st.altair_chart(combined_chart)
             # Salva il grafico come immagine PNG
             #save(combined_chart, "files/grafico.png")
-            
-            save_chart_as_image(combined_chart)
+            chart_html = combined_chart.to_html()
+            asyncio.run(save_chart(chart_html, "files/grafico.png"))
+        
+            #save_chart_as_image(combined_chart)
             #combined_chart.save("files/grafico.png", scale_factor=2)  
             #save(combined_chart, "files/grafico.png", method="png")
         else:

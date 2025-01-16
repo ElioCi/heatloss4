@@ -13,3 +13,4 @@ webdriver-manager==4.0.2
 fpdf2==2.8.2
 vl-convert-python
 pyppeteer
+nest_asyncio

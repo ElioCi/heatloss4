@@ -183,7 +183,7 @@ def UpdateReportPdf():
 
 
     pdf.add_page()
-    pdf.image('files/grafico.png', x=30, y=60, w=400) 
+    pdf.image('files/grafico.png', x=30, y=40, w=300) 
 
 
 

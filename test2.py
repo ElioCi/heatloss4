@@ -12,6 +12,7 @@ from altair_saver import save
 from PIL import Image
 
 import asyncio
+import nest_asyncio
 from pyppeteer import launch
 
 from selenium import webdriver
@@ -19,8 +20,9 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 
+nest_asyncio.apply()
 async def save_chart(chart_html, output_file):
-    browser = await launch(headless=True, args=["--no-sandbox","--disable-setuid-sandbox"])
+    browser = await launch(headless=True, args=["--no-sandbox"])
     page = await browser.newPage()
     await page.setContent(chart_html)
     await page.screenshot(path=output_file)

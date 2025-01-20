@@ -24,12 +24,13 @@ def Esegui():
     # Ottieni l'orario locale
     local_timezone = get_localzone()
     
-    tempoIniziale = datetime.now(local_timezone)
+    #tempoIniziale = datetime.now(local_timezone)
+    tempoIniziale = utc_time.astimezone(local_timezone)
     # Converti al fuso orario locale (esempio: Europe/Rome)
 
 
     #placeholder.write(f"Execution started at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}  ... ***running, please be patient I'm working for you*** ...")
-    placeholder.write(f"Execution started at {datetime.now(local_timezone).strftime('%Y-%m-%d %H:%M:%S')}  ... ***running, please be patient I'm working for you*** ...")
+    placeholder.write(f"Execution started at {tempoIniziale.strftime('%Y-%m-%d %H:%M:%S')}  ... ***running, please be patient I'm working for you*** ...")
 
     progress1_bar = st.progress(0)
     progress1_text = st.empty()

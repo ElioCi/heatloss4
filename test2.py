@@ -25,6 +25,7 @@ def Esegui():
     local_timezone = get_localzone()
     
     #tempoIniziale = datetime.now(local_timezone)
+    utc_time = datetime.now()
     tempoIniziale = utc_time.astimezone(local_timezone)
     # Converti al fuso orario locale (esempio: Europe/Rome)
 

@@ -4,7 +4,48 @@ import json
     
 if 'prot' not in st.session_state or not st.session_state.prot:
     st.session_state.prot = False
-    
+
+# Chiave segreta utilizzata per firmare il token
+SECRET_KEY = 'EC1'
+
+# Funzione per verificare il token
+def verify_token(token):
+    try:
+        # Decodifica e verifica il token
+        decoded_token = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
+        return decoded_token
+    except PyJWTError as e:
+        # Token non valido o scaduto
+        st.error("Token invalid or expired: " + str(e))
+        return None
+
+# Acquisisci il token dai parametri dell'URL
+query_params = st.experimental_get_query_params()
+token = query_params.get("token", [None])[0]
+
+if token:
+    # Verifica il token
+    decoded_token = verify_token(token)
+    if decoded_token:
+        st.success("Authorized access!")
+        st.write("Token decoded:", decoded_token)
+        st.session_state.prot = True
+        with open("prot_status.json", "w") as file:
+            json.dump({"prot": st.session_state.prot}, file)
+            
+        # Inserisci qui il codice dell'applicazione Streamlit
+    else:
+        st.error("Access denied: token invalid or expired.")
+        st.session_state.prot = False
+        with open("prot_status.json", "w") as file:
+            json.dump({"prot": st.session_state.prot}, file)
+        st.stop()
+else:
+    st.error("No token provided, access denied.")
+    with open("prot_status.json", "w") as file:
+            json.dump({"prot": st.session_state.prot}, file)
+    st.stop()
+
   
 st.markdown("---")
 st.markdown("<h1 style='text-align: center;'>🌈 Pipe heat loss analysis</h1>", unsafe_allow_html=True)

@@ -28,8 +28,9 @@ def verify_token(token):
 # query_params = st.experimental_get_query_params()
 query_params = st.query_params
 st.write("Query Params (st.query_params):", st.query_params)
-st.write("Query Params (experimental_get_query_params):", st.experimental_get_query_params())
+
 token = query_params.get("token", [None])[0]
+st.write("token:", token)
 
 if token:
     # Verifica il token

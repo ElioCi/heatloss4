@@ -26,7 +26,9 @@ def verify_token(token):
 
 # Acquisisci il token dai parametri dell'URL
 # query_params = st.experimental_get_query_params()
-query_params = dict(st.query_params)
+query_params = st.query_params
+st.write("Query Params (st.query_params):", st.query_params)
+st.write("Query Params (experimental_get_query_params):", st.experimental_get_query_params())
 token = query_params.get("token", [None])[0]
 
 if token:

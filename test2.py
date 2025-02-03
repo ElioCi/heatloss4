@@ -15,7 +15,14 @@ import matplotlib.pyplot as plt
 from utility import trovaDesc
 
 def Esegui():
-    
+
+    if 'prot' not in st.session_state:
+        st.session_state.prot = False
+
+    print ('prot analysis', st.session_state.prot)
+    if st.session_state.prot == False:
+        st.info('unauthorized access')
+        st.stop()
     
     st.title('Calculation')
     

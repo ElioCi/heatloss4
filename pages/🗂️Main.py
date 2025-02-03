@@ -7,6 +7,14 @@ st.set_page_config(
     page_icon= "🌈"
 )
 
+# Legge il valore dal file temporaneo
+try:
+    with open("prot_status.json", "r") as file:
+        data = json.load(file)
+        st.session_state.prot = data.get("prot", False)
+except FileNotFoundError:
+    st.session_state.prot = False
+
 # Funzione per svuotare il contenuto dei file mantenendo solo la prima riga
 def reset_files(general_data_path, piping_data_path, new_values=None):
     # Carica i dati da entrambi i file
